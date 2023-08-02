@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<body>
+<h3>file upload</h3>
+<p id ="result"></p>
+<form id="uploadFileFrm">
+	번호 : <input type="text" name="number"/><br />
+	이름 : <input type="text" name="name" /><br />
+	주소 : <input type="text" name="address" /><br /><br />
+	파일 : <input type="file" name="uploadFile"/><br /><br />
+	<button type="button" id="uploadBtn">파일 업로드</button>
+</form>
+<br />
+<br />
+<h3>file download</h3>
+<button type="button" id="downloadBtn">파일 다운로드</button>
+
+<script>
+	$("#uploadBtn").on("click", ()=>{
+		$.ajax({
+			url:"http://localhost:3100/fileupload",
+			type:"post",
+			data:new FormData($("#uploadFileFrm")[0]),
+			enctype:"multipart/form-data",
+			processData:false,
+			contentType:false,
+			cache:false,
+			success:function(str){
+				alert("success");
+				$("#result").text(str);
+			},
+			error:function(){
+				alert("error");
+			}
+		})
+	});
+	
+	$("#downloadBtn").on("click", ()=>{
+		location.href = "http://localhost:3100/fileDownload?filename=url.txt";
+	});
+	
+</script>
+</body>
+</html>
