@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+	<form id="uploadFrm" action="http://localhost:3100/addMember" method="post">
+		id : <input type="text" name="id"/>
+		pwd :<input type="text" name="pwd"/>
+		name : <input type="text" name="name"/>
+		email : <input type="text" name="email"/>
+		<button  id="addBtn">데이터 추가</button>
+	</form>
+	<div id="d">
+		
+	</div>
+	<button type="button" id="setBtn">멤버 불러오기</button>
+</body>
+<script>
+	$("#setBtn").on('click', ()=>{
+		$.ajax({
+			url:"http://localhost:3100/allmember",
+			method:"GET",
+			dataType:"json",
+			success:function(res){
+				alert("Success");
+				let result = [];
+				for(let data of res){
+					result.push(
+						`<div>${data.id}</div>` + 
+						`<div>${data.pwd}</div>` +
+						`<div>${data.name}</div>` +
+						`<div>${data.email}</div>`
+					)
+				}
+				
+				$("#d").append(result);
+				console.log(res);
+			},
+			error:function(){
+				alert("Error");
+			}
+		})
+	})
+
+</script>
+</html>
