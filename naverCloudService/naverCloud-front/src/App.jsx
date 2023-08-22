@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import {ReactMediaRecorder} from 'react-media-recorder';
-
+import Tts from './Tts';
 
 function App() {
   const [resp, setResp] = useState('');
@@ -22,7 +22,8 @@ function App() {
       })
   }
   return (
-    <>
+    <div style={{textAlign:'center'}}>
+      <Tts></Tts>
       <ReactMediaRecorder
         audio
         render={({status, startRecording, stopRecording, mediaBlobUrl})=>(
@@ -44,7 +45,7 @@ function App() {
           <input type="submit" value='파일 전송'/>
         </form>
         <p>결과 {resp}</p>
-    </>
+    </div>
   )
 }
 
