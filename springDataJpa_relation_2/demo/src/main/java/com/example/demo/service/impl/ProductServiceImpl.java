@@ -28,8 +28,16 @@ public class ProductServiceImpl implements ProductService{
 		
 		return stores;
 	}
+
+	@Override
+	public List<Product> getProductsByStoreId(int storeId) {
+		List<Product> Products = productDao.getProductsByStoreId(storeId);
+		
+		return Products;
+	}
 	
 	
+	//전환 예제
 //	@Override
 //	public ProductResponseDto getProduct(Long number) {
 //		Product product = productDao.selectProduct(number);//db to entity
@@ -42,6 +50,5 @@ public class ProductServiceImpl implements ProductService{
 //		
 //		return productResponseDto;
 //	}
-
 
 }

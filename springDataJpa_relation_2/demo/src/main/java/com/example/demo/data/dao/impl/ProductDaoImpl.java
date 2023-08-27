@@ -25,9 +25,15 @@ public class ProductDaoImpl implements ProductDao{
 	@Override
 	public List<Store> getNearStoreInfos(String productName) {
 		List<Store> resultStores = productRepository.getNearStoreInfos(productName);
-		System.out.println("---dao impl ---- getNearStoreInfos" + resultStores);
 		
 		return resultStores;
+	}
+
+	@Override
+	public List<Product> getProductsByStoreId(int storeId) {
+		List<Product> resultProducts = productRepository.getProductsByStoreId(storeId);
+		
+		return resultProducts;
 	}
 
 //	@Override

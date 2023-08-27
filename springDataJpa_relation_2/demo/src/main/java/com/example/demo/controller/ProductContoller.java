@@ -39,5 +39,15 @@ public class ProductContoller {
 		return stores;
 	}
 	
+	@GetMapping("/product-list")
+	public List<Product> getProductsByStoreId(int storeId) {
+		System.out.println("-----getProductsByStoreId");
+		
+		List<Product> products = productService.getProductsByStoreId(storeId);
+		System.out.println(products);
+	
+		return products;
+	}
+	
 
 }

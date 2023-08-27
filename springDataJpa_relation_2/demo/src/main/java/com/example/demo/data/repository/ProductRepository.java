@@ -20,4 +20,9 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	            + "    WHERE p.productTitle = :productName) "
 	            )
 	List<Store> getNearStoreInfos(@Param("productName") String productName);
+	 
+	 @Query("SELECT sp.product "
+		       + "FROM StoreProduct AS sp "
+		       + "WHERE sp.store.storeId = :storeId")
+	List<Product> getProductsByStoreId(@Param("storeId") int storeId);
 }

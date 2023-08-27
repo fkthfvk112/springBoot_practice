@@ -18,23 +18,21 @@ import lombok.ToString;
 @Entity
 @Table(name = "store_product")
 public class StoreProduct {
-//	@Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment strategy
-//    @Column(name = "store_product_id")
-//    private int storeProductId;
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment strategy
+    @Column(name = "store_product_id")
+    private int storeProductId;
 	 
     @Column(name = "store_product_stock")
     private int storeProductStock;
 
-    @Id
+   
     @ManyToOne
     @JoinColumn(name="product_id")
     private Product product; 
     
-    @Id
     @ManyToOne
 	@ToString.Exclude//ToString에서 제외, 제외 안하면 무한 호출 에러
     @JoinColumn(name="store_id")
     private Store store; 
-
 }
