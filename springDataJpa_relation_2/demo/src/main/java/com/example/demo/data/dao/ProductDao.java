@@ -10,5 +10,5 @@ import com.example.demo.data.entity.Store;
 public interface ProductDao {
 	List<Store> getNearStoreInfos(String productName); //수정 entity to dto
 	List<Product> getProductsByStoreId(int storeId);
-
+	Product saveProduct(Product product);
 }

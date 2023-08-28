@@ -35,6 +35,11 @@ public class ProductServiceImpl implements ProductService{
 		
 		return Products;
 	}
+
+	@Override
+	public void saveProduct(Product product) {
+		productDao.saveProduct(product);
+	}
 	
 	
 	//전환 예제

@@ -49,5 +49,13 @@ public class ProductContoller {
 		return products;
 	}
 	
+	@PostMapping("/add-product")
+	public void insertProduct(@RequestBody Product product) {
+		System.out.println("-----insertProduct");
+		
+		productService.saveProduct(product);
+		
+	}
+	
 
 }

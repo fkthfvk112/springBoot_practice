@@ -25,4 +25,6 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 		       + "FROM StoreProduct AS sp "
 		       + "WHERE sp.store.storeId = :storeId")
 	List<Product> getProductsByStoreId(@Param("storeId") int storeId);
+	 
+	
 }

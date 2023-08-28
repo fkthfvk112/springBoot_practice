@@ -36,6 +36,13 @@ public class ProductDaoImpl implements ProductDao{
 		return resultProducts;
 	}
 
+	@Override
+	public Product saveProduct(Product product) {
+		Product savedProduct = productRepository.save(product);
+		System.out.println("----insert " + savedProduct);
+		return null;
+	}
+
 //	@Override
 //	public Product updateProductName(Long number, String name) throws Exception {
 //		Optional<Product> selectedProduct = productRepository.findById(number);
